@@ -1,6 +1,6 @@
 {
     "name": "magepal/magento2-formfieldmanager",
-    "description": "",
+    "description": "Customer and Address Form Fields Manager for Magento2",
     "keywords": [
         "magento 2",
         "admin customer",
