@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2017 MagePal LLC. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Customer\Model\Customer\DataProvider">
+        <plugin sortOrder="1" name="magePalFormFieldManagerDataProvider"
+                type="MagePal\FormFieldManager\Plugin\Model\Customer\DataProviderPlugin"/>
+    </type>
+    <type name="Magento\Ui\Component\AbstractComponent">
+        <plugin sortOrder="1" name="magePalFormFieldManagerAbstractComponent"
+                type="MagePal\FormFieldManager\Plugin\Component\AbstractComponentPlugin"/>
+    </type>
+    <type name="Magento\Customer\Model\Metadata\Form">
+        <plugin sortOrder="1" name="magePalFormFieldManagerForm"
+                type="MagePal\FormFieldManager\Plugin\Model\Metadata\FormPlugin"/>
+    </type>
+</config>
