@@ -38,7 +38,7 @@ Quickly and easily remove unwanted form fields from admin order creation and cus
 
 ##### Using Composer (recommended)
 ```
-composer require magepal/magento2-formfieldmanager
+composer require magepal/magento2-form-field-manager
 ```
 
 ##### Manually
