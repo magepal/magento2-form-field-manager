@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2017 MagePal LLC. All rights reserved.
+ * Copyright © MagePal LLC. All rights reserved.
  * See COPYING.txt for license details.
  */
 namespace MagePal\FormFieldManager\Model\Config\Source;
@@ -19,11 +19,9 @@ class AddressAttribute implements \Magento\Framework\Option\ArrayInterface
 
     public function __construct(
         \Magento\Customer\Model\Metadata\FormFactory $customerFormFactory
-    ){
+    ) {
         $this->_customerFormFactory = $customerFormFactory;
-
     }
-
 
     /**
      * @return array
@@ -40,11 +38,10 @@ class AddressAttribute implements \Magento\Framework\Option\ArrayInterface
 
         $ignoreList = ['created_at', 'created_in', 'disable_auto_group_change', 'region', 'region_id', 'postcode'];
 
-        foreach($attributes as $attribute){
-            if(!$attribute->isRequired() && !in_array($attribute->getAttributeCode(), $ignoreList)){
+        foreach ($attributes as $attribute) {
+            if (!$attribute->isRequired() && !in_array($attribute->getAttributeCode(), $ignoreList)) {
                 $fields[] = ['value' => $attribute->getAttributeCode(), 'label' => $attribute->getStoreLabel()];
             }
-
         }
 
         return $fields;

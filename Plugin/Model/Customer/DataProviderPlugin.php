@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2017 MagePal LLC. All rights reserved.
+ * Copyright © MagePal LLC. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -26,7 +26,6 @@ class DataProviderPlugin
         $this->timezone = $timezone;
     }
 
-
     /**
      * @param \Magento\Customer\Model\Customer\DataProvider $subject
      * @param $result
@@ -35,7 +34,7 @@ class DataProviderPlugin
     public function afterGetData(\Magento\Customer\Model\Customer\DataProvider $subject, $result)
     {
         //check if dob is hidden and need to change the date format
-        if($this->_dataHelper->isCustomerEditAdminPage() && $this->_dataHelper->isEnabled()) {
+        if ($this->_dataHelper->isCustomerEditAdminPage() && $this->_dataHelper->isEnabled()) {
             if (is_array($result) && in_array('dob', $this->_dataHelper->getCustomerAttributeArray())) {
                 if ($this->_dataHelper->array_path_exists($result, '1/customer/dob')) {
                     $result[1]['customer']['dob'] = $this->timezone->date($result[1]['customer']['dob'])->format('m/d/Y');
@@ -43,6 +42,6 @@ class DataProviderPlugin
             }
         }
 
-         return $result;
+        return $result;
     }
 }
