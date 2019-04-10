@@ -3,17 +3,22 @@
  * Copyright © MagePal LLC. All rights reserved.
  * See COPYING.txt for license details.
  * http://www.magepal.com | support@magepal.com
-*/
+ */
 
 namespace MagePal\FormFieldManager\Helper;
 
-class Data extends \Magento\Framework\App\Helper\AbstractHelper
+use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Store\Model\ScopeInterface;
+
+/**
+ * Class Data
+ * @package MagePal\FormFieldManager\Helper
+ */
+class Data extends AbstractHelper
 {
     const XML_PATH_ACTIVE = 'magepal_formfieldmanager/general/active';
     const XML_CUSTOMER_ATTRIBUTE = 'magepal_formfieldmanager/general/customer_attribute';
     const XML_CUSTOMER_ADDRESS_ATTRIBUTE = 'magepal_formfieldmanager/general/customer_address_attribute';
-
-    public static $ignoreLazyLoad = 0;
 
     /**
      * If enabled
@@ -22,7 +27,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function isEnabled()
     {
-        return $this->scopeConfig->isSetFlag(self::XML_PATH_ACTIVE, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->isSetFlag(self::XML_PATH_ACTIVE, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -50,7 +55,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getCustomerAttribute()
     {
-        return $this->scopeConfig->getValue(self::XML_CUSTOMER_ATTRIBUTE, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->getValue(self::XML_CUSTOMER_ATTRIBUTE, ScopeInterface::SCOPE_STORE);
     }
 
     /**
@@ -59,7 +64,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getCustomerAddressAttribute()
     {
-        return $this->scopeConfig->getValue(self::XML_CUSTOMER_ADDRESS_ATTRIBUTE, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->getValue(
+            self::XML_CUSTOMER_ADDRESS_ATTRIBUTE,
+            ScopeInterface::SCOPE_STORE
+        );
     }
 
     /**
@@ -91,7 +99,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * @param string $separator
      * @return bool
      */
-    public function array_path_exists($array, $path, $separator = '/')
+    public function arrayPathExists($array, $path, $separator = '/')
     {
         $paths = explode($separator, $path);
 

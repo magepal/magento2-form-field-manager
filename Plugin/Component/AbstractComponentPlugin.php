@@ -3,31 +3,38 @@
  * Copyright © MagePal LLC. All rights reserved.
  * See COPYING.txt for license details.
  * http://www.magepal.com | support@magepal.com
-*/
+ */
 namespace MagePal\FormFieldManager\Plugin\Component;
 
+use Magento\Ui\Component\AbstractComponent;
+use MagePal\FormFieldManager\Helper\Data;
+
+/**
+ * Class AbstractComponentPlugin
+ * @package MagePal\FormFieldManager\Plugin\Component
+ */
 class AbstractComponentPlugin
 {
 
-    /* @var \MagePal\FormFieldManager\Helper\Data */
+    /* @var Data */
     private $_dataHelper;
 
     /**
      * DataProviderPlugin constructor.
+     * @param Data $dataHelper
      */
     public function __construct(
-        \MagePal\FormFieldManager\Helper\Data $dataHelper
-
+        Data $dataHelper
     ) {
         $this->_dataHelper = $dataHelper;
     }
 
     /**
-     * @param \Magento\Ui\Component\AbstractComponent $subject
+     * @param AbstractComponent $subject
      * @param $result
      * @return array
      */
-    public function afterGetChildComponents(\Magento\Ui\Component\AbstractComponent $subject, $result)
+    public function afterGetChildComponents(AbstractComponent $subject, $result)
     {
         if ($this->_dataHelper->isCustomerEditAdminPage() && $this->_dataHelper->isEnabled()) {
             if ($subject->getName() == 'customer') {
