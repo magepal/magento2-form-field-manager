@@ -47,7 +47,8 @@ class Data extends AbstractHelper
     {
         return $this->_request->getFullActionName() === 'sales_order_create_index'
             || $this->_request->getFullActionName() === 'sales_order_create_loadBlock'
-            || $this->_request->getFullActionName() === 'sales_order_edit_index';
+            || $this->_request->getFullActionName() === 'sales_order_edit_index'
+            || $this->_request->getFullActionName() === 'sales_order_edit_loadBlock';
     }
 
     /**
