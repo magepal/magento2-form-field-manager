@@ -35,7 +35,7 @@ class FormPlugin
      */
     public function afterGetAttributes(Form $subject, $result)
     {
-        if ($this->_dataHelper->isOrderCreationAdminPage() && $this->_dataHelper->isEnabled() && is_array($result)) {
+        if ($this->_dataHelper->isSalesOrderFormAdminPage() && $this->_dataHelper->isEnabled() && is_array($result)) {
             foreach ($this->_dataHelper->getCustomerAddressAttributeArray() as $field) {
                 if (array_key_exists($field, $result)) {
                     unset($result[$field]);

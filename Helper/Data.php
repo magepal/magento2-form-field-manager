@@ -43,10 +43,11 @@ class Data extends AbstractHelper
      * Check page type
      * @return bool
      */
-    public function isOrderCreationAdminPage()
+    public function isSalesOrderFormAdminPage()
     {
         return $this->_request->getFullActionName() === 'sales_order_create_index'
-            || $this->_request->getFullActionName() === 'sales_order_create_loadBlock';
+            || $this->_request->getFullActionName() === 'sales_order_create_loadBlock'
+            || $this->_request->getFullActionName() === 'sales_order_edit_index';
     }
 
     /**
