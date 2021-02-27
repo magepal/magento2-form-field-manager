@@ -1,6 +1,13 @@
 <a href="http://www.magepal.com" ><img src="https://image.ibb.co/dHBkYH/Magepal_logo.png" width="100" align="right" /></a>
 
 # Customer and Address Form Fields Manager for Magento2
+
+[![Total Downloads](https://poser.pugx.org/magepal/magento2-form-field-manager/downloads)](https://www.magepal.com/magento2/extensions/admin-form-fields-manager-for-magento-2.html)
+[![Latest Stable Version](https://poser.pugx.org/magepal/magento2-form-field-manager/v/stable)](https://www.magepal.com/magento2/extensions/admin-form-fields-manager-for-magento-2.html)
+
+
+<a href="https://www.magepal.com/magento2/extensions/admin-form-fields-manager-for-magento-2.html" ><img alt="Magento Extensions" src="https://user-images.githubusercontent.com/1415141/109392207-dcf93f00-78e8-11eb-875d-d23be0c9b29b.png" /></a>
+
 Quickly and easily remove unwanted form fields from admin order creation and customer account, added by default magento or other third party extensions
 
 

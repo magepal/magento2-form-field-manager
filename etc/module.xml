@@ -4,7 +4,7 @@
     <module name="MagePal_FormFieldManager" setup_version="1.0.0">
         <sequence>
             <module name="Magento_Customer"/>
-
+            <module name="MagePal_Core"/>
         </sequence>
     </module>
 </config>
