@@ -37,9 +37,17 @@ class AbstractComponentPlugin
     public function afterGetChildComponents(AbstractComponent $subject, $result)
     {
         if ($this->_dataHelper->isCustomerEditAdminPage() && $this->_dataHelper->isEnabled()) {
+
+            $dataProvider = $subject->getContext()->getDataProvider()->getName();
+
             if ($subject->getName() == 'customer') {
                 $this->hideFields($result, $this->_dataHelper->getCustomerAttributeArray());
-            } elseif ($subject->getName() == 'address') {
+            } elseif (
+                // Address form fields are in a separate UI component XML from ~2.4
+                // Using data source to identify correct component to match
+                ($dataProvider == 'customer_address_form_data_source' && $subject->getName() == 'general') ||
+                ($dataProvider == 'customer_form_data_source' && $subject->getName() == 'address')
+            ) {
                 $this->hideFields($result, $this->_dataHelper->getCustomerAddressAttributeArray());
             }
         }

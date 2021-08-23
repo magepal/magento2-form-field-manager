@@ -36,7 +36,11 @@ class Data extends AbstractHelper
      */
     public function isCustomerEditAdminPage()
     {
-        return $this->_request->getFullActionName() === 'customer_index_edit';
+        return $this->_request->getFullActionName() === 'customer_index_edit' ||
+            (
+                $this->_request->getFullActionName() === 'mui_index_render_handle' &&
+                $this->_request->getParam('handle') === 'customer_address_edit'
+            ); // Address form uses MUI renderer since ~2.4
     }
 
     /**
