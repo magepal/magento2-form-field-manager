@@ -55,7 +55,7 @@ class AbstractComponentPlugin
     {
         if (is_array($result)) {
             foreach ($fields as $field) {
-                if (array_key_exists($field, $result)) {
+                if ($field !== null && array_key_exists($field, $result)) {
                     $temp = $result[$field]->getConfig();
                     $temp['visible'] = false;
                     $result[$field]->setConfig($temp);

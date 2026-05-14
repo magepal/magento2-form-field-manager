@@ -37,7 +37,7 @@ class FormPlugin
     {
         if ($this->_dataHelper->isSalesOrderFormAdminPage() && $this->_dataHelper->isEnabled() && is_array($result)) {
             foreach ($this->_dataHelper->getCustomerAddressAttributeArray() as $field) {
-                if (array_key_exists($field, $result)) {
+                if ($field !== null && array_key_exists($field, $result)) {
                     unset($result[$field]);
                 }
             }

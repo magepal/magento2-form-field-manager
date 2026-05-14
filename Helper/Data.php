@@ -106,7 +106,7 @@ class Data extends AbstractHelper
         $paths = explode($separator, $path);
 
         foreach ($paths as $sub) {
-            if (!is_array($array) || !array_key_exists($sub, $array)) {
+            if ((!is_array($array) || $sub === null) || !array_key_exists($sub, $array)) {
                 return false;
             }
 
